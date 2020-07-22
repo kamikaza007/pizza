@@ -41,6 +41,9 @@
                         <li class="nav-item">
                             <a href="{{route('pizza.index')}}" class="nav-link">{{__('Pizzas')}}</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('order.index')}}" class="nav-link">{{__('Orders')}}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

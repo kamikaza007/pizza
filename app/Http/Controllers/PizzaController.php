@@ -96,16 +96,18 @@ class PizzaController extends Controller
             'name'=>'required|min:3|max:60',
             'description'=>'required',
             'price'=>'required|numeric',
-            'image'=>'required|image|mimes:jpeg,png,jpg|max:5120'
+            'image'=>'image|mimes:jpeg,png,jpg|max:5120'
         ]);
+        $pizza->name=$request->name;
+        $pizza->description=$request->description;
+        $pizza->price=$request->price;
+        $pizza->updated_by=Auth::user()->id;
+        $pizza->save();
 
         if ($request->hasFile('image')) 
         {
-            $pizza->name=$request->name;
-            $pizza->description=$request->description;
-            $pizza->price=$request->price;
-            $pizza->updated_by=Auth::user()->id;
-            $pizza->save();
+
+            
 
             $name = $pizza->id.'.jpg';
             $destinationPath = public_path('/uploads/pizzas').'/';

@@ -24,6 +24,7 @@ Route::get('/clearCart', 'FrontController@clearCart')->name('front.clearCart');
 Route::get('/cart', 'FrontController@cart')->name('front.cart');
 Route::get('/orderForm', 'FrontController@orderForm')->name('front.orderForm');
 
+
 Route::get('/order/{order}', 'OrderController@show')->name('order.show');
 Route::post('/order', 'OrderController@store')->name('order.store');
 
@@ -42,4 +43,5 @@ Route::middleware('auth')->group(function(){
 Route::middleware('admin')->group(function(){
 	Route::get('/home', 'HomeController@index')->name('admin.home');
 	Route::resource('pizza', 'PizzaController');
+	Route::get('/orders', 'OrderController@index')->name('order.index');
 });
